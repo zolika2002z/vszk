@@ -1,5 +1,6 @@
 global using vszk.Models;
 global using vszk.Services;
+global using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
