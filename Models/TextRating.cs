@@ -1,12 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace vszk.Models
 {
     public class TextRating
-    {        
+    {      
+        [Key]
+        [ForeignKey("TextRating")]  
         public int TextratingID { get; set; }
         
         public string All { get; set; }

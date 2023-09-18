@@ -2,6 +2,8 @@ namespace vszk.Models
 {
     public class Star
     {
+        [Key]
+        [ForeignKey("Star")]
         public int StarID { get; set; }
 
         public float All { get; set; }

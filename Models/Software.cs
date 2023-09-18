@@ -1,9 +1,9 @@
-using System.ComponentModel.DataAnnotations;
-
 namespace vszk.Models
 {
     public class Software
     {
+        [Key]
+        [ForeignKey("Software")]
         public int SoftwareID { get; set; }
 
         public string Name { get; set; }

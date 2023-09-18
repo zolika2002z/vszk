@@ -2,6 +2,8 @@ namespace vszk.Models
 {
     public class User
     {
+        [Key]
+        [ForeignKey("User")]
         public int UserID { get; set; }
         
         public string Lastname { get; set; }

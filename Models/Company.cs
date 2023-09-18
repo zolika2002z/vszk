@@ -2,6 +2,8 @@ namespace vszk.Models
 {
     public class Company
     {
+        [Key]
+        [ForeignKey("Company")]
         public int CompanyID { get; set; }
 
         public string Name { get; set; }

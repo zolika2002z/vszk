@@ -1,9 +1,9 @@
-using System.ComponentModel.DataAnnotations;
-
 namespace vszk.Models
 {
     public class SoftwareFunction
     {
+        [Key]
+        [ForeignKey("SoftwareFunction")]
         public int SoftwarefuncID { get; set; }
         
         public bool Sfunction { get; set; }

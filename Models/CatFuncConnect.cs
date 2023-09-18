@@ -1,9 +1,9 @@
-using System.ComponentModel.DataAnnotations;
-
 namespace vszk.Models
 {
     public class CatFuncConnect
     {
+        [Key]
+        [ForeignKey("CatFuncConnect")]
         public int CfConnectID { get; set; }
 
         [Required]

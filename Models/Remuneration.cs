@@ -1,9 +1,9 @@
-using System.ComponentModel.DataAnnotations;
-
 namespace vszk.Models
 {
     public class Remuneration
     {
+        [Key]
+        [ForeignKey("Remuneration")]
         public int RemID { get; set; }
 
         [Required]

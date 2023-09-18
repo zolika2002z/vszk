@@ -1,9 +1,9 @@
-using System.ComponentModel.DataAnnotations;
-
 namespace vszk.Models
 {
     public class Rating
     {
+        [Key]
+        [ForeignKey("Rating")]
         public int RatingID { get; set; }
         
         public DateTime Datumido { get; set; }

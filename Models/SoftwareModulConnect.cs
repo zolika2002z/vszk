@@ -1,9 +1,9 @@
-using System.ComponentModel.DataAnnotations;
-
 namespace vszk.Models
 {
     public class SoftwareModulConnect
     {
+        [Key]
+        [ForeignKey("SoftwareModulConnect")]
         public int SmconnectID { get; set; }
 
         [Required]
