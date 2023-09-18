@@ -11,7 +11,6 @@ namespace vszk.Models
         public string Description { get; set; }
 
         [Required]
-
         public Category Category { get; set; }
 
         [Required]
