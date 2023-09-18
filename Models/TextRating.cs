@@ -6,6 +6,7 @@ namespace vszk.Models
         [ForeignKey("TextRating")]  
         public int TextratingID { get; set; }
         
+        [Required]
         [StringLength(256)]
         public string All { get; set; }
         
