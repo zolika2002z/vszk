@@ -6,16 +6,22 @@ namespace vszk.Models
         [ForeignKey("Star")]
         public int StarID { get; set; }
 
+        [Range(0, 5)]
         public float All { get; set; }
         
+        [Range(0, 5)]
         public float Simplicity { get; set; }
         
+        [Range(0, 5)]
         public float Service { get; set; }
         
+        [Range(0, 5)]
         public float Characteristic { get; set; }
         
+        [Range(0, 5)]
         public float Price_value { get; set; }
         
+        [Range(0, 10)]
         public int recommendation { get; set; }
     }
 }

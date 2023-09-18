@@ -6,8 +6,11 @@ namespace vszk.Models
         [ForeignKey("Software")]
         public int SoftwareID { get; set; }
 
+        [Required]
+        [StringLength(64)]
         public string Name { get; set; }
 
+        [StringLength(256)]
         public string Description { get; set; }
 
         [Required]

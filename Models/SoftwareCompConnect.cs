@@ -6,8 +6,10 @@ namespace vszk.Models
         [ForeignKey("SoftwareCompConnect")]
         public int ScconnectID { get; set; }
         
+        [Required]
         public Compatibility Compatibility { get; set; }       
         
+        [Required]
         public Software Software { get; set; }    
     }
 }

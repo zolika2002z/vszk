@@ -6,6 +6,8 @@ namespace vszk.Models
         [ForeignKey("Modul")]
         public int ModulID { get; set; }
 
+        [Required]
+        [StringLength(64)]
         public string Name { get; set; }     
     }
 }

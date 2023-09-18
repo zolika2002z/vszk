@@ -6,6 +6,8 @@ namespace vszk.Models
         [ForeignKey("Level")]
         public int LevelID { get; set; }
         
+        [Required]
+        [StringLength(32)]
         public string name { get; set; }
     }
 }

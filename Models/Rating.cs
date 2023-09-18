@@ -6,7 +6,10 @@ namespace vszk.Models
         [ForeignKey("Rating")]
         public int RatingID { get; set; }
         
-        public DateTime Datumido { get; set; }
+        public DateTime Datumido
+        {
+            get {return DateTime.Now;}
+        }
         
         [Required]
         public User User { get; set; }

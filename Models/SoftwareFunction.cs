@@ -6,6 +6,7 @@ namespace vszk.Models
         [ForeignKey("SoftwareFunction")]
         public int SoftwarefuncID { get; set; }
         
+        [Required]
         public bool Sfunction { get; set; }
 
         [Required]

@@ -6,6 +6,8 @@ namespace vszk.Models
         [ForeignKey("Category")]
         public int CatID { get; set; }
 
+        [Required]
+        [StringLength(32)]
         public string Name { get; set; }
 
         [Required]
