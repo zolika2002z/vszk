@@ -2,22 +2,21 @@ namespace vszk.Services
 {
     public class SoftwareService : ISoftwareService
     {
-        private static List<Software> Softwares = new List<Software>
+        private readonly DataContext _context;
+        public SoftwareService(DataContext context)
         {
-            new Software(),
-            new Software()
-        };
+            _context = context;
+        }
 
         public async Task<List<Software>> GetAllSoftwares()
         {
-            return Softwares;
+            return await _context.Software.Include(x => x.Category).Include(x => x.Company).Include(x => x.Category.CategoryGroup).ToListAsync();
         }
 
         public async Task<Software> GetSoftwareById(int id)
         {
-            var software = Softwares.FirstOrDefault(c => c.SoftwareID == id);
-            if(software is not null) return software;
-
+            var software = _context.Software.FirstOrDefaultAsync(x => x.SoftwareID == id);
+            if(software is not null) return await software;
             throw new Exception("Software not found");
         }
     }

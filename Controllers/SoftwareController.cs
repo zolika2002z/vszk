@@ -14,13 +14,13 @@ namespace vszk.Controllers
         [HttpGet("GetAll")]
         public async Task<ActionResult<List<Software>>> Get()
         {
-            return Ok(await _softwareService.GetAllSoftwares());
+            return await _softwareService.GetAllSoftwares();
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Software>> GetSingle(int id)
         {
-            return Ok(await _softwareService.GetSoftwareById(id));
+            return await _softwareService.GetSoftwareById(id);
         }
     }
 }
