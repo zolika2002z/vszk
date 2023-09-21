@@ -19,6 +19,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<ISoftwareService, SoftwareService>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<ICatFuncConnectService, CatFuncConnectService>();
+builder.Services.AddScoped<ISoftwareFunctionService, SoftwareFunctionService>();
 
 var app = builder.Build();
 
