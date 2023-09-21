@@ -20,6 +20,7 @@ builder.Services.AddScoped<ISoftwareService, SoftwareService>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<ICatFuncConnectService, CatFuncConnectService>();
 builder.Services.AddScoped<ISoftwareFunctionService, SoftwareFunctionService>();
+builder.Services.AddScoped<ICompanyService, CompanyService>();
 
 var app = builder.Build();
 
