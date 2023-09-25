@@ -4,7 +4,7 @@ namespace vszk.Models
     {
         [Key]
         [ForeignKey("Functionality")]
-        public int FuncID { get; set; }
+        public int FunctionalityID { get; set; }
         
         [Required]
         [StringLength(32)]

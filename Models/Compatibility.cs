@@ -4,10 +4,10 @@ namespace vszk.Models
     {
         [Key]
         [ForeignKey("Compatibility")]
-        public int compID { get; set; }
+        public int CompatibilityID { get; set; }
         
         [Required]
         [StringLength(32)]
-        public string device { get; set; }           
+        public string Device { get; set; }           
     }
 }

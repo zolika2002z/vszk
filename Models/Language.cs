@@ -4,7 +4,7 @@ namespace vszk.Models
     {
         [Key]
         [ForeignKey("Language")]
-        public int langID { get; set; }
+        public int LanguageID { get; set; }
         
         [Required]
         [StringLength(32)]

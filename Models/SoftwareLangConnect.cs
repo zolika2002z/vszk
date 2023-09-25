@@ -4,7 +4,7 @@ namespace vszk.Models
     {
         [Key]
         [ForeignKey("SoftwareLangConnect")]
-        public int SlconnectID { get; set; }
+        public int SoftwareLangConnectID { get; set; }
         
         [Required]
         public Language Language { get; set; }       

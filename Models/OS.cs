@@ -4,7 +4,7 @@ namespace vszk.Models
     {
         [Key]
         [ForeignKey("OS")]
-        public int OsID { get; set; }
+        public int OSID { get; set; }
         
         [Required]
         [StringLength(32)]

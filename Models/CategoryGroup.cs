@@ -4,7 +4,7 @@ namespace vszk.Models
     {
         [Key]
         [ForeignKey("CategoryGroup")]
-        public int CatgroupID { get; set; }
+        public int CategoryGroupID { get; set; }
         
         [Required]
         [StringLength(32)]

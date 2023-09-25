@@ -4,7 +4,7 @@ namespace vszk.Models
     {
         [Key]
         [ForeignKey("SoftwareModulConnect")]
-        public int SmconnectID { get; set; }
+        public int SoftwareModulConnectID { get; set; }
 
         [Required]
         public Modul Modul { get; set; }

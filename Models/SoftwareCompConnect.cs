@@ -4,7 +4,7 @@ namespace vszk.Models
     {
         [Key]
         [ForeignKey("SoftwareCompConnect")]
-        public int ScconnectID { get; set; }
+        public int SoftwareCompConnectID { get; set; }
         
         [Required]
         public Compatibility Compatibility { get; set; }       

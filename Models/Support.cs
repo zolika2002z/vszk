@@ -4,7 +4,7 @@ namespace vszk.Models
     {
         [Key]
         [ForeignKey("Support")]
-        public int supportID { get; set; }
+        public int SupportID { get; set; }
         
         [Required]
         public Language Language { get; set; }       

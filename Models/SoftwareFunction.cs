@@ -4,7 +4,7 @@ namespace vszk.Models
     {
         [Key]
         [ForeignKey("SoftwareFunction")]
-        public int SoftwarefuncID { get; set; }
+        public int SoftwareFunctionID { get; set; }
         
         [Required]
         public bool Sfunction { get; set; }

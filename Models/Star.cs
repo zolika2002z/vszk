@@ -22,6 +22,6 @@ namespace vszk.Models
         public float Price_value { get; set; }
         
         [Range(0, 10)]
-        public int recommendation { get; set; }
+        public int Recommendation { get; set; }
     }
 }

@@ -4,7 +4,7 @@ namespace vszk.Models
     {
         [Key]
         [ForeignKey("SoftwareOSConnect")]
-        public int SoconnectID { get; set; }
+        public int SoftwareOSConnectID { get; set; }
         
         [Required]
         public OS OS { get; set; }       

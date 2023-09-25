@@ -4,7 +4,7 @@ namespace vszk.Models
     {      
         [Key]
         [ForeignKey("TextRating")]  
-        public int TextratingID { get; set; }
+        public int TextRatingID { get; set; }
         
         [Required]
         [StringLength(256)]

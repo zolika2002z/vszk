@@ -4,7 +4,7 @@ namespace vszk.Models
     {
         [Key]
         [ForeignKey("CatFuncConnect")]
-        public int CfConnectID { get; set; }
+        public int CatFuncConnectID { get; set; }
 
         [Required]
         public Functionality Functionality { get; set; }

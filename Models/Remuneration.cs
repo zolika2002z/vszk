@@ -4,7 +4,7 @@ namespace vszk.Models
     {
         [Key]
         [ForeignKey("Remuneration")]
-        public int RemID { get; set; }
+        public int RemunerationID { get; set; }
 
         [Required]
         public Software Software { get; set; }
