@@ -1,5 +1,7 @@
 namespace vszk.Controllers
 {
+    [ApiController]
+    [Route("api/[controller]")]
     public class CompanyController : ControllerBase
     {
         private readonly ICompanyService _companyService;

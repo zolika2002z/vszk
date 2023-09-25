@@ -1,5 +1,7 @@
 namespace vszk.Controllers
 {
+    [ApiController]
+    [Route("api/[controller]")]
     public class SoftwareFunctionsController : ControllerBase
     {
         private readonly ISoftwareFunctionService _softwareFunctionService;

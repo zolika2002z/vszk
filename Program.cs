@@ -5,15 +5,22 @@ global using vszk.Data;
 global using System.ComponentModel.DataAnnotations;
 global using System.ComponentModel.DataAnnotations.Schema;
 global using Microsoft.AspNetCore.Mvc;
+global using Microsoft.IdentityModel.Tokens;
+global using System.IdentityModel.Tokens.Jwt;
+global using System.Security.Claims;
+global using System.Text;
+global using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+builder.Configuration.AddJsonFile("appsettings.json");
+var configuration = builder.Configuration;
 
 builder.Services.AddDbContext<DataContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<ISoftwareService, SoftwareService>();
@@ -21,10 +28,28 @@ builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<ICatFuncConnectService, CatFuncConnectService>();
 builder.Services.AddScoped<ISoftwareFunctionService, SoftwareFunctionService>();
 builder.Services.AddScoped<ICompanyService, CompanyService>();
+builder.Services.AddScoped<IRemunerationService, RemunerationService>();
+builder.Services.AddScoped<ISoftwareModulConnectService, SoftwareModulConnectService>();
+builder.Services.AddScoped<ISoftwareCompConnectService, SoftwareCompConnectService>();
+builder.Services.AddScoped<ISoftwareOSConnectService, SoftwareOSConnectService>();
+builder.Services.AddScoped<ISoftwareLangConnectService, SoftwareLangConnectService>();
+builder.Services.AddScoped<ISupportService, SupportService>();
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = false,
+            ValidateAudience = false,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Jwt:SecretKey"]))
+        };
+    });
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -33,6 +58,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

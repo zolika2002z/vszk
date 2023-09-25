@@ -14,6 +14,7 @@ namespace vszk.Models
         [StringLength(32)]
         public string Firstname { get; set; }
 
+        [Required]
         [StringLength(32)]
         public string Email { get; set; }
 
@@ -23,7 +24,8 @@ namespace vszk.Models
         [StringLength(64)]
         public string Settlement { get; set; }
         
+        [Required]
         [StringLength(64)]
-        public string Encrypted_password { get; set; }
+        public string PasswordHash { get; set; }
     }
 }

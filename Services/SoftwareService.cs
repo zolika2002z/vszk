@@ -3,6 +3,7 @@ namespace vszk.Services
     public class SoftwareService : ISoftwareService
     {
         private readonly DataContext _context;
+        
         public SoftwareService(DataContext context)
         {
             _context = context;

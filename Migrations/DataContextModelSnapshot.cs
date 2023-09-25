@@ -267,11 +267,16 @@ namespace vszk.Migrations
                     b.Property<int>("LevelID")
                         .HasColumnType("int");
 
-                    b.Property<int>("Monthly_price")
+                    b.Property<int>("Price")
                         .HasColumnType("int");
 
                     b.Property<int>("SoftwareID")
                         .HasColumnType("int");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasMaxLength(32)
+                        .HasColumnType("nvarchar(32)");
 
                     b.HasKey("RemID");
 
@@ -536,12 +541,9 @@ namespace vszk.Migrations
                         .HasColumnType("nvarchar(32)");
 
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasMaxLength(32)
                         .HasColumnType("nvarchar(32)");
-
-                    b.Property<string>("Encrypted_password")
-                        .HasMaxLength(64)
-                        .HasColumnType("nvarchar(64)");
 
                     b.Property<string>("Firstname")
                         .IsRequired()
@@ -552,6 +554,11 @@ namespace vszk.Migrations
                         .IsRequired()
                         .HasMaxLength(32)
                         .HasColumnType("nvarchar(32)");
+
+                    b.Property<string>("PasswordHash")
+                        .IsRequired()
+                        .HasMaxLength(64)
+                        .HasColumnType("nvarchar(64)");
 
                     b.Property<string>("Settlement")
                         .HasMaxLength(64)

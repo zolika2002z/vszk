@@ -12,6 +12,10 @@ namespace vszk.Models
         [Required]
         public Level Level { get; set; }
 
-        public int Monthly_price { get; set; }
+        [Required]
+        [StringLength(32)]
+        public string Type { get; set; }
+        
+        public int Price { get; set; }
     }
 }

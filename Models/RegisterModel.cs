@@ -1,11 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace Planning_poker_API.Model
+﻿namespace vszk.Models
 {
     public class RegisterModel
     {
-        [Required(ErrorMessage = "User Name is required")]
-        public string Username { get; set; }
+        [Required(ErrorMessage = "Lastname is required")]
+        public string Lastname { get; set; }
+
+        [Required(ErrorMessage = "Firstname is required")]
+        public string Firstname { get; set; }
 
         [EmailAddress]
         [Required(ErrorMessage = "Email is required")]
@@ -13,6 +14,10 @@ namespace Planning_poker_API.Model
 
         [Required(ErrorMessage = "Password is required")]
         public string Password { get; set; }
+        
+        public string Country { get; set; }
+        
+        public string Settlement { get; set; }
 
     }
 }
