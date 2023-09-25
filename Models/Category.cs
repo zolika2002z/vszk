@@ -7,7 +7,7 @@ namespace vszk.Models
         public int CategoryID { get; set; }
 
         [Required]
-        [StringLength(32)]
+        [StringLength(64)]
         public string Name { get; set; }
 
         [Required]

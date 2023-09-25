@@ -19,6 +19,6 @@ namespace vszk.Models
         [Required]
         public Company Company { get; set; }
 
-        public int Introduction_fee { get; set; }
+        public int? Introduction_fee { get; set; }
     }
 }

@@ -8,6 +8,6 @@ namespace vszk.Models
         
         [Required]
         [StringLength(32)]
-        public string Function { get; set; }
+        public string Funct { get; set; }
     }
 }
