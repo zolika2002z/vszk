@@ -20,5 +20,8 @@ namespace vszk.Models
         public Company Company { get; set; }
 
         public int? Introduction_fee { get; set; }
+
+        [StringLength(128)]
+        public string Logo_link { get; set; }
     }
 }

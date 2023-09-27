@@ -104,8 +104,7 @@ namespace vszk.Migrations
                         .HasColumnType("nvarchar(64)");
 
                     b.Property<string>("Phone")
-                        .HasMaxLength(12)
-                        .HasColumnType("nvarchar(12)");
+                        .HasColumnType("char(12)");
 
                     b.Property<string>("Website")
                         .HasMaxLength(64)
@@ -232,6 +231,9 @@ namespace vszk.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RatingID"));
 
+                    b.Property<DateTime>("Datumido")
+                        .HasColumnType("datetime");
+
                     b.Property<int>("SoftwareID")
                         .HasColumnType("int");
 
@@ -308,6 +310,10 @@ namespace vszk.Migrations
 
                     b.Property<int?>("Introduction_fee")
                         .HasColumnType("int");
+
+                    b.Property<string>("Logo_link")
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -543,8 +549,7 @@ namespace vszk.Migrations
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("nvarchar(32)");
+                        .HasColumnType("varchar(64)");
 
                     b.Property<string>("Firstname")
                         .IsRequired()

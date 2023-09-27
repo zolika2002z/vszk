@@ -15,7 +15,7 @@ namespace vszk.Models
         public string Firstname { get; set; }
 
         [Required]
-        [StringLength(32)]
+        [Column(TypeName = "varchar(64)")]
         public string Email { get; set; }
 
         [StringLength(32)]
