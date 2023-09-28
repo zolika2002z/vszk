@@ -18,5 +18,8 @@ namespace vszk.Models
         
         [StringLength(64)]
         public string Website { get; set; }
+        
+        [StringLength(128)]
+        public string Logo_link { get; set; }
     }
 }
