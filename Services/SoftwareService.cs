@@ -9,9 +9,48 @@ namespace vszk.Services
             _context = context;
         }
 
-        public async Task<List<Software>> GetAllSoftwares()
+        private float CalculateAverageStars(Software software)
         {
-            return await _context.Software.Include(x => x.Category).Include(x => x.Company).Include(x => x.Category.CategoryGroup).ToListAsync();
+            var ratings = _context.Rating
+                .Where(r => r.Software.SoftwareID == software.SoftwareID)
+                .ToList();
+
+            if (ratings.Count == 0)
+            {
+                return 0;
+            }
+
+            float totalStars = 0;
+
+            foreach (var rating in ratings)
+            {
+                totalStars += (float)(rating.Star.All + rating.Star.Simplicity + rating.Star.Service + rating.Star.Characteristic + rating.Star.Price_value) / 5;
+            }
+
+            return totalStars / ratings.Count;
+        }
+
+        public async Task<List<SoftwareDTO>> GetAllSoftwares()
+        {
+            var softwareDTOs = await _context.Software
+                .Include(x => x.Category)
+                .Include(x => x.Company)
+                .Include(x => x.Category.CategoryGroup)
+                .ToListAsync();
+
+            var softwareDTOsWithAverageStars = softwareDTOs.Select(software => new SoftwareDTO
+            {
+                SoftwareID = software.SoftwareID,
+                Name = software.Name,
+                Description = software.Description,
+                Category = software.Category,
+                Company = software.Company,
+                Introduction_fee = software.Introduction_fee,
+                Logo_link = software.Logo_link,
+                Average_stars = CalculateAverageStars(software)
+            }).ToList();
+
+            return softwareDTOsWithAverageStars;
         }
 
         public async Task<Software> GetSoftwareById(int id)

@@ -12,7 +12,7 @@ namespace vszk.Controllers
         }
 
         [HttpGet("GetAll")]
-        public async Task<ActionResult<List<Software>>> Get()
+        public async Task<ActionResult<List<SoftwareDTO>>> Get()
         {
             return await _softwareService.GetAllSoftwares();
         }
