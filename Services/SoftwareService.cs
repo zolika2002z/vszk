@@ -13,6 +13,7 @@ namespace vszk.Services
         {
             var ratings = _context.Rating
                 .Where(r => r.Software.SoftwareID == software.SoftwareID)
+                .Include(r => r.Star)
                 .ToList();
 
             if (ratings.Count == 0)
@@ -24,10 +25,12 @@ namespace vszk.Services
 
             foreach (var rating in ratings)
             {
-                totalStars += (float)(rating.Star.All + rating.Star.Simplicity + rating.Star.Service + rating.Star.Characteristic + rating.Star.Price_value) / 5;
+                float? starSum = rating.Star.All + rating.Star.Simplicity + rating.Star.Service + rating.Star.Characteristic + rating.Star.Price_value;
+                totalStars += (float) starSum / 5;
             }
 
-            return totalStars / ratings.Count;
+            float averageStars = totalStars / ratings.Count;
+            return averageStars;
         }
 
         public async Task<List<SoftwareDTO>> GetAllSoftwares()
