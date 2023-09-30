@@ -1,6 +1,7 @@
 global using vszk.Data;
 global using vszk.Models;
 global using vszk.Services;
+global using vszk.Models.DTO;
 global using Microsoft.AspNetCore.Mvc;
 global using Microsoft.EntityFrameworkCore;
 global using Microsoft.IdentityModel.Tokens;
@@ -35,6 +36,7 @@ builder.Services.AddScoped<ISoftwareOSConnectService, SoftwareOSConnectService>(
 builder.Services.AddScoped<ISoftwareLangConnectService, SoftwareLangConnectService>();
 builder.Services.AddScoped<ISupportService, SupportService>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IRatingService, RatingService>();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>

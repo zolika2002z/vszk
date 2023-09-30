@@ -2,7 +2,7 @@ namespace vszk.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class UserController
+    public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
 
