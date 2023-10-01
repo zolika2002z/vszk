@@ -50,7 +50,33 @@ namespace vszk.Services
                 Company = software.Company,
                 Introduction_fee = software.Introduction_fee,
                 Logo_link = software.Logo_link,
-                Average_stars = CalculateAverageStars(software)
+                Average_stars = CalculateAverageStars(software),
+                Languages = _context.SoftwareLangConnect.Include(x => x.Language).Include(x => x.Software).Where(x => x.Software.SoftwareID == software.SoftwareID).Select(x => x.Language).ToList(),
+                Supports = _context.Support.Include(x => x.Language).Include(x => x.Software).Where(x => x.Software.SoftwareID == software.SoftwareID).Select(x => x.Language).ToList(),
+                OSs = _context.SoftwareOSConnect.Include(x => x.OS).Include(x => x.Software).Where(x => x.Software.SoftwareID == software.SoftwareID).Select(x => x.OS).ToList(),
+                Devices = _context.SoftwareCompConnect.Include(x => x.Compatibility).Include(x => x.Software).Where(x => x.Software.SoftwareID == software.SoftwareID).Select(x => x.Compatibility).ToList(),
+                Moduls = _context.SoftwareModulConnect.Include(x => x.Modul).Include(x => x.Software).Where(x => x.Software.SoftwareID == software.SoftwareID).Select(x => x.Modul).ToList(),
+                Remunerations = _context.Remuneration
+                    .Include(x => x.Level)
+                    .Where(x => x.Software.SoftwareID == software.SoftwareID)
+                    .Select(x => new RemunerationDTO
+                    {
+                        RemunerationID = x.RemunerationID,
+                        Level = x.Level,
+                        Type = x.Type,
+                        Price = x.Price
+                    })
+                    .ToList(),
+                Functions = _context.SoftwareFunction
+                    .Include(x => x.Functionality)
+                    .Where(x => x.Software.SoftwareID == software.SoftwareID)
+                    .Select(x => new SoftwareFunctionsDTO
+                    {
+                        SoftwareFunctionID = x.SoftwareFunctionID,
+                        Sfunction = x.Sfunction,
+                        Functionality = x.Functionality
+                    })
+                    .ToList()
             }).ToList();
 
             return softwareDTOsWithAverageStars;
