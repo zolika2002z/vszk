@@ -4,6 +4,6 @@ namespace vszk.Services
     {
         Task<List<SoftwareDTO>> GetAllSoftwares();
 
-        Task<Software> GetSoftwareById(int id);
+        Task<SoftwareDTO> GetSoftwareById(int id);
     }
 }

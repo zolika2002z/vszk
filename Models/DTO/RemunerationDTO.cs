@@ -4,7 +4,7 @@ namespace vszk.Models.DTO
     {
         public int RemunerationID { get; set; }
 
-        public Level Level { get; set; }
+        public string Level { get; set; }
 
         public string Type { get; set; }
         

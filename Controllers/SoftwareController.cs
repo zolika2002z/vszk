@@ -18,7 +18,7 @@ namespace vszk.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Software>> GetSingle(int id)
+        public async Task<ActionResult<SoftwareDTO>> GetSingle(int id)
         {
             return await _softwareService.GetSoftwareById(id);
         }

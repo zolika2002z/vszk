@@ -18,15 +18,15 @@ namespace vszk.Models
 
         public float Average_stars { get; set; }
 
-        public List<Language> Languages { get; set; }
+        public List<string> Languages { get; set; }
 
-        public List<Language> Supports { get; set; }
+        public List<string> Supports { get; set; }
 
-        public List<OS> OSs { get; set; }
+        public List<string> OSs { get; set; }
 
-        public List<Compatibility> Devices { get; set; }
+        public List<string> Devices { get; set; }
 
-        public List<Modul> Moduls { get; set; }
+        public List<string> Moduls { get; set; }
 
         public List<RemunerationDTO> Remunerations { get; set; }
 

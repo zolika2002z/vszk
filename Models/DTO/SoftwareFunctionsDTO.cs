@@ -6,7 +6,7 @@ namespace vszk.Models.DTO
         
         public bool Sfunction { get; set; }
 
-        public Functionality Functionality { get; set; }
+        public string Functionality { get; set; }
         
     }
 }
