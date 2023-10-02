@@ -21,5 +21,9 @@ namespace vszk.Models
         
         [StringLength(128)]
         public string Logo_link { get; set; }
+        
+        [Required]
+        [Column(TypeName = "varchar(64)")]
+        public string Email { get; set; }
     }
 }

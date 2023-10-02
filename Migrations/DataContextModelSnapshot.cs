@@ -94,6 +94,10 @@ namespace vszk.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CompanyID"));
 
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("varchar(64)");
+
                     b.Property<string>("Location")
                         .HasMaxLength(128)
                         .HasColumnType("nvarchar(128)");
