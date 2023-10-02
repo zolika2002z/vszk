@@ -13,7 +13,7 @@ namespace vszk.Models
         [StringLength(128)]
         public string Location { get; set; }
         
-        [Column(TypeName = "char(12)")]
+        [Column(TypeName = "varchar(16)")]
         public string Phone { get; set; }
         
         [StringLength(64)]

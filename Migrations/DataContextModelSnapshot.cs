@@ -112,7 +112,7 @@ namespace vszk.Migrations
                         .HasColumnType("nvarchar(64)");
 
                     b.Property<string>("Phone")
-                        .HasColumnType("char(12)");
+                        .HasColumnType("varchar(16)");
 
                     b.Property<string>("Website")
                         .HasMaxLength(64)
@@ -313,8 +313,8 @@ namespace vszk.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasMaxLength(516)
+                        .HasColumnType("nvarchar(516)");
 
                     b.Property<int?>("Introduction_fee")
                         .HasColumnType("int");

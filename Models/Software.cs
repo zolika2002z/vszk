@@ -10,7 +10,7 @@ namespace vszk.Models
         [StringLength(64)]
         public string Name { get; set; }
 
-        [StringLength(256)]
+        [StringLength(516)]
         public string Description { get; set; }
 
         [Required]
