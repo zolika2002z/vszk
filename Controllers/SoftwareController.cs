@@ -22,5 +22,11 @@ namespace vszk.Controllers
         {
             return await _softwareService.GetSoftwareById(id);
         }
+
+        [HttpGet("GetAllInfos")]
+        public async Task<ActionResult<List<SoftwareSmallDTO>>> GetInfos()
+        {
+            return await _softwareService.GetAllSoftwaresInfos();
+        }
     }
 }

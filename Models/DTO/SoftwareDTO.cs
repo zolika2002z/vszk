@@ -1,4 +1,4 @@
-namespace vszk.Models
+namespace vszk.Models.DTO
 {
     public class SoftwareDTO
     {

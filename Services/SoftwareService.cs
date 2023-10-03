@@ -128,5 +128,23 @@ namespace vszk.Services
             }
             throw new Exception("Software not found");
         }
+
+        public async Task<List<SoftwareSmallDTO>> GetAllSoftwaresInfos()
+        {
+            var softwareDTOs = await _context.Software
+                .Include(x => x.Category)
+                .Include(x => x.Category.CategoryGroup)
+                .ToListAsync();
+
+            var softwares = softwareDTOs.Select(software => new SoftwareSmallDTO
+            {
+                SoftwareID = software.SoftwareID,
+                Name = software.Name,
+                Category_group = software.Category.CategoryGroup.Name,
+                Category = software.Category.Name
+            }).ToList();
+
+            return softwares;
+        }
     }
 }
