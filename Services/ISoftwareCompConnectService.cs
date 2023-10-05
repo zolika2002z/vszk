@@ -2,6 +2,6 @@ namespace vszk.Services
 {
     public interface ISoftwareCompConnectService
     {
-        Task<List<SoftwareCompConnect>> GetSoftwareCompatibility();
+        Task<List<string>> GetSoftwareCompatibility();
     }
 }

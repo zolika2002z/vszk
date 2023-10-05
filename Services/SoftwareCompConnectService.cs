@@ -9,9 +9,9 @@ namespace vszk.Services
             _context = context;
         }
 
-        public async Task<List<SoftwareCompConnect>> GetSoftwareCompatibility()
+        public async Task<List<string>> GetSoftwareCompatibility()
         {
-            return await _context.SoftwareCompConnect.Include(x => x.Software).Include(x => x.Compatibility).ToListAsync();
+            return await _context.SoftwareCompConnect.Include(x => x.Compatibility).Select(x => x.Compatibility.Device).Distinct().ToListAsync();
         }
     }
 }

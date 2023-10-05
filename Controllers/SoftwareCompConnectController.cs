@@ -12,7 +12,7 @@ namespace vszk.Controllers
         }
 
         [HttpGet("GetAll")]
-        public async Task<ActionResult<List<SoftwareCompConnect>>> Get()
+        public async Task<ActionResult<List<string>>> Get()
         {
             return await _softwareCompConnectService.GetSoftwareCompatibility();
         }
