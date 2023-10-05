@@ -9,9 +9,9 @@ namespace vszk.Services
             _context = context;
         }
 
-        public async Task<List<SoftwareOSConnect>> GetSoftwareOS()
+        public async Task<List<string>> GetSoftwareOS()
         {
-            return await _context.SoftwareOSConnect.Include(x => x.Software).Include(x => x.OS).ToListAsync();
+            return await _context.SoftwareOSConnect.Include(x => x.OS).Select(x => x.OS.Os).Distinct().ToListAsync();
         }
     }
 }
