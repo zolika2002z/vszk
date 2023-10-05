@@ -9,9 +9,9 @@ namespace vszk.Services
             _context = context;
         }
 
-        public async Task<List<Support>> GetSupports()
+        public async Task<List<string>> GetSupports()
         {
-            return await _context.Support.Include(x => x.Software).Include(x => x.Language).ToListAsync();
+            return await _context.Support.Include(x => x.Language).Select(x => x.Language.Lang).Distinct().ToListAsync();
         }
     }
 }

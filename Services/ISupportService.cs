@@ -2,6 +2,6 @@ namespace vszk.Services
 {
     public interface ISupportService
     {
-        Task<List<Support>> GetSupports();
+        Task<List<string>> GetSupports();
     }
 }
