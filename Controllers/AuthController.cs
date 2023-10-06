@@ -96,5 +96,34 @@ namespace vszk.Controllers
 
             return BadRequest("Invalid login data.");
         }
+
+        [HttpPost("changepassword")]
+        public IActionResult ChangePassword([FromBody] PasswordChange pc)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = _context.User.SingleOrDefault(u => u.UserID == pc.UserID);
+
+                if (user == null)
+                {
+                    return NotFound("User not found.");
+                }
+
+                if (!VerifyPassword(pc.OldPassword, user.PasswordHash))
+                {
+                    return Unauthorized("Invalid old password.");
+                }
+
+                string newPasswordHash = HashPassword(pc.NewPassword);
+
+                user.PasswordHash = newPasswordHash;
+
+                _context.SaveChanges();
+
+                return Ok("Password changed successfully.");
+            }
+
+            return BadRequest("Invalid input data.");
+        }
     }
 }
