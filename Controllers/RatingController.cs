@@ -12,9 +12,15 @@ namespace vszk.Controllers
         }
         
         [HttpPost]
-        public async Task<IActionResult> NewRate([FromBody] RatingDTO rate)
+        public async Task<IActionResult> NewRating([FromBody] RatingDTO rate)
         {
             return Ok(await _ratingService.PostFeedBack(rate));
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> ChangeRating(int id, [FromBody] RatingChangeDTO rate)
+        {
+            return Ok(await _ratingService.ChangeFeedBack(id, rate));
         }
     }
 }
