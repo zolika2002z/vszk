@@ -16,5 +16,11 @@ namespace vszk.Controllers
         {
             return await _companyService.GetCompanies();
         }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<CompanyDTO>> GetSingle(int id)
+        {
+            return await _companyService.GetCompany(id);
+        }
     }
 }
