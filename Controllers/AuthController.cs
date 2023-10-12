@@ -93,9 +93,16 @@ namespace vszk.Controllers
                     return Unauthorized("Invalid email or password.");
                 }
 
-                var token = GenerateJwtToken(user);
+                var userDTO = new UserDTO
+                {
+                    Token = GenerateJwtToken(user),
+                    UserID = user.UserID,
+                    Email = user.Email,
+                    FirstName = user.Firstname,
+                    LastName = user.Lastname
+                };
 
-                return Ok(new { Token = token });
+                return Ok(userDTO);
             }
 
             return BadRequest("Invalid login data.");
