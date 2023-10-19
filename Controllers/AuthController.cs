@@ -1,8 +1,4 @@
 using System.Security.Cryptography;
-using MimeKit;
-using MimeKit.Text;
-using MailKit.Net.Smtp;
-using MailKit.Security;
 
 namespace vszk.Controllers
 {
