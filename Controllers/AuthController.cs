@@ -136,28 +136,5 @@ namespace vszk.Controllers
 
             return BadRequest("Invalid input data.");
         }
-
-        [HttpPost("forgotpassword")]
-        public IActionResult ForgotPassword(string email)
-        {
-            if (ModelState.IsValid)
-            {
-                var mail = new MimeMessage();
-                mail.From.Add(MailboxAddress.Parse("vszk2023@gmail.com"));
-                mail.To.Add(MailboxAddress.Parse(email));
-                mail.Subject = "VSZK felhasználónak jelszóújraállítás";
-                mail.Body = new TextPart(TextFormat.Html) { Text = "Your email content here" };
-
-                using var smtp = new SmtpClient();
-                smtp.Connect("smtp.gmail.com", 587, SecureSocketOptions.StartTls);
-                smtp.Authenticate("vszk2023@gmail.com", "VszKvSZk");
-                smtp.Send(mail);
-                smtp.Disconnect(true);
-
-                return Ok("Email sent successfully.");
-            }
-
-            return BadRequest("Invalid input data.");
-        }
     }
 }
