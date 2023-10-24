@@ -141,7 +141,9 @@ namespace vszk.Services
                 SoftwareID = software.SoftwareID,
                 Name = software.Name,
                 Category_group = software.Category.CategoryGroup.Name,
-                Category = software.Category.Name
+                Category = software.Category.Name,
+                Description = software.Description,
+                Logo_link = software.Logo_link
             }).ToList();
 
             return softwares;
